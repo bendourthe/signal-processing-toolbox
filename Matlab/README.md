@@ -48,7 +48,8 @@ Applies a Gaussian filter to a time series.
 #### Dependencies
     None
 #### Example
-    -> go to example folder and run code named gaussian_example.m for more details
+    -> go to example folder and run code named gaussian_example.m or gaussian_spikes_example.m for more details
 
 ![Alt text](denoising/examples/img/gaussian_example_fwhm.jpg "moving average example")
 ![Alt text](denoising/examples/img/gaussian_example.jpg "moving average example")
+![Alt text](denoising/examples/img/gaussian_spikes_example.jpg "moving average example")
