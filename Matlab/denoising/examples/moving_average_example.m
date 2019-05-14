@@ -17,4 +17,4 @@ signal = ampl + noise;
 window = 20;
 plotting = 1;
 %   function
-filtered_signal = moving_average(signal, sampling_rate, window, plotting);
+filtered_signal = moving_average(signal, 2, sampling_rate, window, plotting);
