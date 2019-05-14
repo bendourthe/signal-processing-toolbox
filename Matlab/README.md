@@ -21,4 +21,4 @@ Applies a moving average filter to a time series.
 #### Example
     -> go to example folder and run code named moving_average_example.m for more details
 
-![Alt text](examples/img/moving_average_example.jpg "moving average example")
+![Alt text](denoising/examples/img/moving_average_example.jpg "moving average example")
