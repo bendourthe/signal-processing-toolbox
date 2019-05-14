@@ -1,6 +1,6 @@
 # Signal processing toolbox
 
-## This toolbox includes a few custom python codes enabling essential signal processing operations
+## This toolbox includes a few custom Python codes enabling essential signal processing operations
 
 __
 ## Dynamic time wrapping (DTW) excursion
