@@ -6,7 +6,7 @@ __
 ## Denoising
 __
 ### Moving average
-#### Definition:
+#### Definition
 Applies a moving average filter to a time series.
 #### Input
     signal: nx1 array corresponding to the tested time series
@@ -25,7 +25,7 @@ Applies a moving average filter to a time series.
 
 __
 ### Gaussian filter
-#### Definition:
+#### Definition
 Applies a Gaussian filter to a time series.
 #### Input
     signal: nx1 array corresponding to the tested time series
