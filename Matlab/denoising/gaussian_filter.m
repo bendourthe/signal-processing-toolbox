@@ -78,7 +78,7 @@ if plotting == 1
     clf, hold on
     plot(gtime, gauswin, 'ko-', 'markerfacecolor', 'w', 'linew', 2)
     hold on
-    plot(gtime([prePeakHalf pstPeakHalf]), gauswin([prePeakHalf pstPeakHalf]), 'm', 'linew', 3)
+    plot(gtime([prePeakHalf pstPeakHalf]), gauswin([prePeakHalf pstPeakHalf]), 'm', 'linew', 2)
     legend({'Gaussian';'full-width half maximum'})
     title('Gaussian filter representation')
 
@@ -86,7 +86,7 @@ if plotting == 1
     fig2.Color = 'w';
     clf, hold on
     plot(time, signal)
-    plot(time, filtered_signal, 'linew', 3)
+    plot(time, filtered_signal, 'linew', 2)
 
     xlabel('Time [sec]'), ylabel('Amplitude')
     legend({'Original signal';'Gaussian-filtered'})
