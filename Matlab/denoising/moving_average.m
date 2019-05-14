@@ -46,6 +46,7 @@ for i=window+1:n-window-1
     filtered_signal(i) = mean(signal(i-window:i+window));
 end
 
+% Plotting
 if plotting == 1
     % compute window size in ms
     window_size = 1000*(window*2+1) / sampling_rate;
