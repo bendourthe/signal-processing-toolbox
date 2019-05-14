@@ -64,7 +64,7 @@ Applies a Gaussian filter to a time series.
 __
 ### Teager-Kaiser Energy-tracking Operator (TKEO) and Z-Score
 #### Definition
- Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time series (e.g. Electromyogram).
+ Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time series (e.g. Electromyogram (EMG)) and generate the corresponding Z-Scores (potential application: activation detection for EMG signals).
 #### Input
     signal: nx1 array corresponding to the tested time series
     sampling_rate: corresponding sampling rate of the time series (i.e.
