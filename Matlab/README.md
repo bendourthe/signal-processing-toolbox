@@ -73,4 +73,4 @@ __
 #### Example
     -> go to example folder and run code named tkeo_zscore_example.m and use the file emg_sample.mat for more details
 
-![Alt text](denoising/examples/img/tkeo_zscore_example_fwhm.jpg "Teager-Kaiser Energy-tracking Operator and Z-Score example")
+![Alt text](denoising/examples/img/tkeo_zscore_example.jpg "Teager-Kaiser Energy-tracking Operator and Z-Score example")
