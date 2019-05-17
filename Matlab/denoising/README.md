@@ -28,9 +28,9 @@ Applies a Gaussian filter to denoise a time series.
     -> go to example folder and run code named gaussian_example.m
         or gaussian_spikes_example.m for more details
 
-![Alt text](denoising/examples/img/gaussian_example_fwhm.jpg "Gaussian moving average example")
-![Alt text](denoising/examples/img/gaussian_example.jpg "Gaussian moving average example")
-![Alt text](denoising/examples/img/gaussian_spikes_example.jpg "Gaussian moving average with spikes example")
+![Alt text](examples/img/gaussian_example_fwhm.jpg "Gaussian moving average example")
+![Alt text](examples/img/gaussian_example.jpg "Gaussian moving average example")
+![Alt text](examples/img/gaussian_spikes_example.jpg "Gaussian moving average with spikes example")
 
 __
 ### Moving average
@@ -54,7 +54,7 @@ Applies a moving average filter to denoise a time series.
 #### Example
     -> go to example folder and run code named moving_average_example.m for more details
 
-![Alt text](denoising/examples/img/moving_average_example.jpg "moving average example")
+![Alt text](examples/img/moving_average_example.jpg "moving average example")
 
 __
 ### Teager-Kaiser Energy-tracking Operator (TKEO) and Z-Score
@@ -76,4 +76,4 @@ __
     -> go to example folder and run code named tkeo_zscore_example.m and use
         the file emg_sample.mat for more details
 
-![Alt text](denoising/examples/img/tkeo_zscore_example.jpg "Teager-Kaiser Energy-tracking Operator and Z-Score example")
+![Alt text](examples/img/tkeo_zscore_example.jpg "Teager-Kaiser Energy-tracking Operator and Z-Score example")
