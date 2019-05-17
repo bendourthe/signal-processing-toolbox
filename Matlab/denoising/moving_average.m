@@ -1,7 +1,7 @@
 function filtered_signal = moving_average(signal, mode, sampling_rate, window, plotting)
 %% DESCRIPTION
 %
-%   Applies a moving average filter to a time series.
+%   Applies a moving average filter to denoise a time series.
 %
 %   Input
 %       signal: nx1 array corresponding to the tested time series

@@ -1,7 +1,7 @@
 function filtered_signal = gaussian_filter(signal, mode, sampling_rate, fwhm, window, plotting)
 %% DESCRIPTION
 %
-%   Applies a Gaussian filter to a time series.
+%   Applies a Gaussian filter to a denoise time series.
 %
 %   Input
 %       signal: nx1 array corresponding to the tested time series
