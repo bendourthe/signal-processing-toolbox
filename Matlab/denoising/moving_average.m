@@ -14,7 +14,7 @@ function filtered_signal = moving_average(signal, mode, sampling_rate, window, p
 %       window: number of frames used to define the size of the window
 %           (e.g. a value of 20 would mean that every data point in the
 %           original signal will be replaced with the mean of the 20 data
-%           points and 20 data points after itself)
+%           points before and the 20 data points after itself)
 %       plot: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
@@ -67,5 +67,4 @@ if plotting == 1
     xlabel('Time [sec]'), ylabel('Amplitude')
     title([ 'Moving average filter with a window size of ' num2str(round(window_size)) '-ms filter' ])
     legend({'Signal'; 'Filtered'})
-else
 end
