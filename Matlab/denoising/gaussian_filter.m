@@ -53,8 +53,6 @@ empFWHM = gtime(pstPeakHalf) - gtime(prePeakHalf);
 
 %   normalize Gaussian to unit energy
 gauswin = gauswin / sum(gauswin);
-title([ 'Gaussian kernel with requeted FWHM ' num2str(fwhm) ' ms (' num2str(empFWHM) ' ms achieved)' ])
-xlabel('Time (ms)'), ylabel('Gain')
 
 % Initialize filtered signal
 if mode == 0
@@ -77,9 +75,9 @@ if plotting == 1
     fig = figure;
     fig.Color = 'w';    % set background color to white
     clf, hold on
-    plot(gtime, gauswin, 'ko-', 'markerfacecolor', 'w', 'linew', 2)
+    plot(gtime, gauswin, 'ko-', 'markerfacecolor', 'w', 'linew', 1.5)
     hold on
-    plot(gtime([prePeakHalf pstPeakHalf]), gauswin([prePeakHalf pstPeakHalf]), 'm', 'linew', 2)
+    plot(gtime([prePeakHalf pstPeakHalf]), gauswin([prePeakHalf pstPeakHalf]), 'm', 'linew', 1.5)
     legend({'Gaussian';'full-width half maximum'})
     title('Gaussian filter representation')
 
@@ -87,7 +85,7 @@ if plotting == 1
     fig2.Color = 'w';
     clf, hold on
     plot(time, signal)
-    plot(time, filtered_signal, 'linew', 2)
+    plot(time, filtered_signal, 'linew', 1.5)
 
     xlabel('Time [sec]'), ylabel('Amplitude')
     legend({'Original signal';'Gaussian-filtered'})

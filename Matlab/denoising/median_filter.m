@@ -52,7 +52,8 @@ if plotting == 1
     fig = figure;
     fig.Color = 'w';    % set background color to white
     clf, hold on
-    plot(1:length(signal), signal, 1:length(signal), filtered_signal, 'linew', 2)
+    plot(1:length(signal), signal)
+    plot(1:length(signal), filtered_signal, 'linew', 1.5)
     xlabel('Time [sec]'), ylabel('Amplitude')
     legend({'Original signal';'Median-filtered'})
     title('Median spike denoising filter')

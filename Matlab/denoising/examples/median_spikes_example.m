@@ -17,4 +17,4 @@ signal(noisepnts) = 50+rand(size(noisepnts))*100;
 window = 40;
 plotting = 1;
 %   function
-filtered_signal = median_filter(signal, 20, 0);
+filtered_signal = median_filter(signal, 20, 1);

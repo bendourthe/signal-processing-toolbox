@@ -56,12 +56,12 @@ if plotting == 1
     fig.Color = 'w';    % set background color to white
     clf, hold on
     plot(time, signal)
-    plot(time, filtered_signal, 'linew',2)
+    plot(time, filtered_signal, 'linew', 1.5)
 
     % draw a patch to indicate the window size
     tidx = dsearchn(time', 1);
     ylim = get(gca, 'ylim');
-    patch(time([tidx-window tidx-window tidx+window tidx+window]), ylim([1 2 2 1]), 'k', 'facealpha', .25, 'linestyle','none')
+    patch(time([tidx-window tidx-window tidx+window tidx+window]), ylim([1 2 2 1]), 'k', 'facealpha', .25, 'linestyle', 'none')
     plot(time([tidx tidx]), ylim,'k--')
 
     xlabel('Time [sec]'), ylabel('Amplitude')

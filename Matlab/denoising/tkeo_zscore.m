@@ -45,15 +45,15 @@ if plotting == 1
     clf
     % plot original and filtered time series (normalized to max-1)
     subplot(211), hold on
-    plot(time, signal./max(signal), 'linew', 2)
-    plot(time, filtered_signal./max(filtered_signal), 'linew', 2)
+    plot(time, signal./max(signal), 'linew', 1.5)
+    plot(time, filtered_signal./max(filtered_signal), 'linew', 1.5)
     xlabel('Time [ms]'), ylabel('Amplitude or energy')
     legend({'signal'; 'filtered signal (TKEO)'})
 
     % plot zscores
     subplot(212), hold on
-    plot(time, signal_zscore, 'linew', 2)
-    plot(time, filtered_signal_zscore, 'linew', 2)
+    plot(time, signal_zscore, 'linew', 1.5)
+    plot(time, filtered_signal_zscore, 'linew', 1.5)
     xlabel('Time [ms]'), ylabel('z-score')
     legend({'signal'; 'filtered signal (TKEO)'})
 end
