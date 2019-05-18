@@ -11,12 +11,11 @@ function [filtered_signal, signal_zscore, filtered_signal_zscore] = tkeo_zscore(
 %       plot: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
-%       filtered_signal: nx1 array corresponding to the filtered time
-%           series
+%       filtered_signal: nx1 array corresponding to the filtered signal
 %       signal_zscore: nx1 array corresponding to z-score of the original
-%           time series
+%           signal
 %       filtered_signal_zscore: nx1 array corresponding to z-score of the
-%           filtered time series
+%           filtered signal
 %       plot (optional): plot showing the original and filtered signals
 %           along with the corresponding z-scores
 

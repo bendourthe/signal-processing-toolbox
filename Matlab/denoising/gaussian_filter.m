@@ -20,8 +20,7 @@ function filtered_signal = gaussian_filter(signal, mode, sampling_rate, fwhm, wi
 %       plot: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
-%       filtered_signal: nx1 array corresponding to the filtered time
-%           series
+%       filtered_signal: nx1 array corresponding to the filtered signal
 %       plot (optional): plots showing (1) the Gaussian with the
 %           corresponding full-width at half maximum, and (2) the
 %           original and filtered signals

@@ -16,8 +16,7 @@ function filtered_signal = median_filter(signal, window, plotting)
 %       plot: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
-%       filtered_signal: nx1 array corresponding to the filtered time
-%           series
+%       filtered_signal: nx1 array corresponding to the filtered signal
 %       plot (optional): plot showing the original and filtered signals
 
 %% FUNCTION
@@ -48,7 +47,6 @@ end
 
 % Plotting
 if plotting == 1
-    % plot Gaussian
     fig = figure;
     fig.Color = 'w';    % set background color to white
     clf, hold on

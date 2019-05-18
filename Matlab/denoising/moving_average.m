@@ -18,8 +18,7 @@ function filtered_signal = moving_average(signal, mode, sampling_rate, window, p
 %       plot: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
-%       filtered_signal: nx1 array corresponding to the filtered time
-%           series
+%       filtered_signal: nx1 array corresponding to the filtered signal
 %       plot (optional): plot showing the original and filtered signals
 %           along with the corresponding window size
 
