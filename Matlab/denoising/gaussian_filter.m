@@ -16,14 +16,15 @@ function filtered_signal = gaussian_filter(signal, mode, sampling_rate, fwhm, wi
 %       window: number of frames used to define the size of the window
 %           (e.g. a value of 20 would mean that every data point in the
 %           original signal will be replaced with the mean of the 20 data
-%           points and 20 data points after itself)
+%           points before and the 20 data points after itself)
 %       plot: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered time
 %           series
-%       plot (optional): plot showing the original and filtered signals
-%           along with the corresponding window size
+%       plot (optional): plots showing (1) the Gaussian with the
+%           corresponding full-width at half maximum, and (2) the
+%           original and filtered signals
 
 %% FUNCTION
 
@@ -55,7 +56,7 @@ gauswin = gauswin / sum(gauswin);
 title([ 'Gaussian kernel with requeted FWHM ' num2str(fwhm) ' ms (' num2str(empFWHM) ' ms achieved)' ])
 xlabel('Time (ms)'), ylabel('Gain')
 
-% Initialize filtered signal vector
+% Initialize filtered signal
 if mode == 0
     filtered_signal = zeros(size(signal));
 elseif mode == 1
@@ -91,5 +92,4 @@ if plotting == 1
     xlabel('Time [sec]'), ylabel('Amplitude')
     legend({'Original signal';'Gaussian-filtered'})
     title('Gaussian smoothing filter')
-else
 end
