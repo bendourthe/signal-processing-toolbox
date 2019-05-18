@@ -17,7 +17,7 @@ Applies a Gaussian filter to denoise a time series.
         (e.g. a value of 20 would mean that every data point in the original
         signal will be replaced with the mean of the 20 data points before
         and the 20 data points after itself)
-    plot: set to 1 if you wish to see the resulting filtered signal
+    plotting: set to 1 if you wish to see the resulting filtered signal
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     plot (optional): plots showing (1) the Gaussian with the corresponding
@@ -33,6 +33,23 @@ Applies a Gaussian filter to denoise a time series.
 ![Alt text](examples/img/gaussian_spikes_example.jpg "Gaussian moving average with spikes example")
 
 __
+### Linear detrend
+#### Definition
+Applies the detrend function remove the linear trend from a time series.
+    Note: added option to plot original and filtered signals.
+#### Input
+    signal: nx1 array corresponding to the tested time series
+    plotting: set to 1 if you wish to see the resulting filtered signal
+#### Output
+    filtered_signal: nx1 array corresponding to the filtered time series
+    plot (optional): plot showing the original and filtered signals
+#### Dependencies
+    None
+#### Example
+    -> go to example folder and run code named linear_detrend_example.m for more details
+
+![Alt text](examples/img/linear_detrend_example.jpg "Linear detrend example")
+__
 ### Median spike denoising filter
 #### Definition
 Applies a Median filter to a denoise time series (especially to remove spikes).
@@ -45,7 +62,7 @@ Applies a Median filter to a denoise time series (especially to remove spikes).
         (e.g. a value of 20 would mean that every data point in the original
         signal will be replaced with the mean of the 20 data points before
         and the 20 data points after itself)
-    plot: set to 1 if you wish to see the resulting filtered signal
+    plotting: set to 1 if you wish to see the resulting filtered signal
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     plot (optional): plot showing the original and filtered signals
@@ -69,7 +86,7 @@ Applies a moving average filter to denoise a time series.
         (e.g. a value of 20 would mean that every data point in the original
         signal will be replaced with the mean of the 20 data points before
         and the 20 data points after itself)
-    plot: set to 1 if you wish to see the resulting filtered signal
+    plotting: set to 1 if you wish to see the resulting filtered signal
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     plot (optional): plot showing the original and filtered signals along 
@@ -89,7 +106,7 @@ __
     signal: nx1 array corresponding to the tested time series
     sampling_rate: corresponding sampling rate of the time series (i.e.
         how many frames per seconds, in Hz)
-    plot: set to 1 if you wish to see the resulting filtered signal
+    plotting: set to 1 if you wish to see the resulting filtered signal
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     signal_zscore: nx1 array corresponding to z-score of the original time series
