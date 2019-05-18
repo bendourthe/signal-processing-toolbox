@@ -13,5 +13,6 @@ This folder contains a few Matlab codes (and some examples codes) that can be us
 | Code | Definition  |
 | ---- |-------------|
 | gaussian\_filter.m | Applies a Gaussian filter to denoise a time series |
+| median\_filter.m | Applies a Median filter to a denoise time series (especially to remove spikes) |
 | moving\_average.m | Applies a moving average filter to denoise a time series |
 | tkeo\_zscore.py    | Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time series (e.g. Electromyogram (EMG)) and generate the corresponding Z-Scores (potential application: activation detection for EMG signals) |
