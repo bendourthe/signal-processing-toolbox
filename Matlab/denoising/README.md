@@ -33,7 +33,7 @@ Applies a Gaussian filter to denoise a time series.
 ![Alt text](examples/img/gaussian_spikes_example.jpg "Gaussian moving average with spikes example")
 
 __
-### Linear detrend
+### Linear detrending
 #### Definition
 Applies the detrend function remove the linear trend from a time series.
     Note: added option to plot original and filtered signals.
@@ -97,6 +97,25 @@ Applies a moving average filter to denoise a time series.
     -> go to example folder and run code named moving_average_example.m for more details
 
 ![Alt text](examples/img/moving_average_example.jpg "moving average example")
+
+__
+### Polynomial detrending
+#### Definition
+Calculated the optimal Bayes information criterion (BIC), generate the corresponding polynomial fit (order = optimal BIC), and applies a polynomial detrend to denoise a time series.
+#### Input
+    signal: nx1 array corresponding to the tested time series
+    plotting: set to 1 if you wish to see the resulting filtered signal
+#### Output
+    filtered_signal: nx1 array corresponding to the filtered time series
+    plot (optional): plot showing the corresponding BIC evolution and
+        the original and filtered signals
+#### Dependencies
+    None
+#### Example
+    -> go to example folder and run code named poly_detrend_example.m for more details
+
+![Alt text](examples/img/poly_detrend_bic_example.jpg "poly detrend BIC example")
+![Alt text](examples/img/poly_detrendexample.jpg "poly detrend example")
 
 __
 ### Teager-Kaiser Energy-tracking Operator (TKEO) and Z-Score

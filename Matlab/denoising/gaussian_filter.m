@@ -17,7 +17,7 @@ function filtered_signal = gaussian_filter(signal, mode, sampling_rate, fwhm, wi
 %           (e.g. a value of 20 would mean that every data point in the
 %           original signal will be replaced with the mean of the 20 data
 %           points before and the 20 data points after itself)
-%       plot: set to 1 if you wish to see the resulting filtered signal
+%       plotting: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered signal

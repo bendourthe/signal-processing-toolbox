@@ -13,7 +13,7 @@ function filtered_signal = median_filter(signal, window, plotting)
 %           (e.g. a value of 20 would mean that every data point in the
 %           original signal will be replaced with the median of the 20 data
 %           points before and the 20 data points after itself)
-%       plot: set to 1 if you wish to see the resulting filtered signal
+%       plotting: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered signal

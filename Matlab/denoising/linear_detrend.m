@@ -7,7 +7,7 @@ function filtered_signal = linear_detrend(signal, plotting)
 %
 %   Input
 %       signal: nx1 array corresponding to the tested time series
-%       plot: set to 1 if you wish to see the resulting filtered signal
+%       plotting: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered signal

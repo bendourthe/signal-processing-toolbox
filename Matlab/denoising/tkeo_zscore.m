@@ -8,7 +8,7 @@ function [filtered_signal, signal_zscore, filtered_signal_zscore] = tkeo_zscore(
 %       signal: nx1 array corresponding to the tested time series
 %       sampling_rate: corresponding sampling rate of the time series (i.e.
 %           how many frames per seconds, in Hz)
-%       plot: set to 1 if you wish to see the resulting filtered signal
+%       plotting: set to 1 if you wish to see the resulting filtered signal
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered signal
