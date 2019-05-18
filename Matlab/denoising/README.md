@@ -15,13 +15,13 @@ Applies a Gaussian filter to denoise a time series.
         filter
     window: number of frames used to define the size of the window
         (e.g. a value of 20 would mean that every data point in the original
-        signal will be replaced with the mean of the 20 data points and 20
-        data points after itself)
+        signal will be replaced with the mean of the 20 data points before
+        and the 20 data points after itself)
     plot: set to 1 if you wish to see the resulting filtered signal
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
-    plot (optional): plot showing the original time series along with
-        the filtered signal and the corresponding window
+    plot (optional): plots showing (1) the Gaussian with the corresponding
+        full-width at half maximum, and (2) the original and filtered signals
 #### Dependencies
     None
 #### Example
@@ -33,6 +33,31 @@ Applies a Gaussian filter to denoise a time series.
 ![Alt text](examples/img/gaussian_spikes_example.jpg "Gaussian moving average with spikes example")
 
 __
+### Median spike denoising filter
+#### Definition
+Applies a Median filter to a denoise time series (especially to remove spikes).
+    Note: for the manual threshold selection, look at the histogram and
+    select a point located right from the largest concentration of
+    points.
+#### Input
+    signal: nx1 array corresponding to the tested time series
+    window: number of frames used to define the size of the window
+        (e.g. a value of 20 would mean that every data point in the original
+        signal will be replaced with the mean of the 20 data points before
+        and the 20 data points after itself)
+    plot: set to 1 if you wish to see the resulting filtered signal
+#### Output
+    filtered_signal: nx1 array corresponding to the filtered time series
+    plot (optional): plot showing the original and filtered signals
+#### Dependencies
+    None
+#### Example
+    -> go to example folder and run code named median_filter_example.m for more details
+
+![Alt text](examples/img/median_filter_threshold_example.jpg "median filter threshold example")
+![Alt text](examples/img/median_filterexample.jpg "median filter example")
+
+__
 ### Moving average
 #### Definition
 Applies a moving average filter to denoise a time series.
@@ -42,13 +67,13 @@ Applies a moving average filter to denoise a time series.
         (i.e. how many frames per seconds, in Hz)
     window: number of frames used to define the size of the window
         (e.g. a value of 20 would mean that every data point in the original
-        signal will be replaced with the mean of the 20 data points and 20
-        data points after itself)
+        signal will be replaced with the mean of the 20 data points before
+        and the 20 data points after itself)
     plot: set to 1 if you wish to see the resulting filtered signal
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
-    plot (optional): plot showing the original time series along with the
-        filtered signal and the corresponding window
+    plot (optional): plot showing the original and filtered signals along 
+        with the corresponding window
 #### Dependencies
     None
 #### Example
@@ -68,8 +93,10 @@ __
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     signal_zscore: nx1 array corresponding to z-score of the original time series
-    filtered_signal_zscore: nx1 array corresponding to z-score of the filtered time series
-    plot (optional): plot showing the original and filtered signals along with the corresponding z-scores
+    filtered_signal_zscore: nx1 array corresponding to z-score of the filtered 
+        time series
+    plot (optional): plot showing the original and filtered signals along with 
+        the corresponding z-scores
 #### Dependencies
     None
 #### Example
