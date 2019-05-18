@@ -55,7 +55,7 @@ Applies a Median filter to a denoise time series (especially to remove spikes).
     -> go to example folder and run code named median_filter_example.m for more details
 
 ![Alt text](examples/img/median_filter_threshold_example.jpg "median filter threshold example")
-![Alt text](examples/img/median_filterexample.jpg "median filter example")
+![Alt text](examples/img/median_filter_example.jpg "median filter example")
 
 __
 ### Moving average
