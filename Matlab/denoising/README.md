@@ -115,7 +115,7 @@ Calculated the optimal Bayes information criterion (BIC), generate the correspon
     -> go to example folder and run code named poly_detrend_example.m for more details
 
 ![Alt text](examples/img/poly_detrend_bic_example.jpg "poly detrend BIC example")
-![Alt text](examples/img/poly_detrendexample.jpg "poly detrend example")
+![Alt text](examples/img/poly_detrend_example.jpg "poly detrend example")
 
 __
 ### Teager-Kaiser Energy-tracking Operator (TKEO) and Z-Score
