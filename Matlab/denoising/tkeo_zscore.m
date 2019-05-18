@@ -56,5 +56,4 @@ if plotting == 1
     plot(time, filtered_signal_zscore, 'linew', 2)
     xlabel('Time [ms]'), ylabel('z-score')
     legend({'signal'; 'filtered signal (TKEO)'})
-else
 end
