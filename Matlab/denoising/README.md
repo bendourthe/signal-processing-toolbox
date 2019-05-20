@@ -20,7 +20,7 @@ Restructure a time series composed of repetitive events into a matrix and calcul
     -> go to example folder and run code named average_rep_events_example.m
         for more details
 
-![Alt text](examples/img/average_rep_events_matrix_example.jpg "Average rep events matrix example")
+![Alt text](examples/img/average_rep_events_matrix_example.jpg "Average rep events example")
 ![Alt text](examples/img/average_rep_events_example.jpg "Average rep events example")
 
 __
