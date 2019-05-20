@@ -12,6 +12,7 @@ This folder contains a few Matlab codes (and some examples codes) that can be us
     
 | Code | Definition  |
 | ---- |-------------|
+| average\_rep\_events.m | Restructure a time series composed of repetitive events into a matrix and calculate the corresponding average |
 | gaussian\_filter.m | Applies a Gaussian filter to denoise a time series |
 | linear\_detrend.m | Applies the detrend function remove the linear trend from a time series |
 | median\_filter.m | Applies a Median filter to a denoise time series (especially to remove spikes) |

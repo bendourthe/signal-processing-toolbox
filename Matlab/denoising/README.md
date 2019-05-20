@@ -1,4 +1,28 @@
 ## Denoising (Matlab)
+
+__
+### Average repetitive events
+#### Definition
+Restructure a time series composed of repetitive events into a matrix and calculate the corresponding average.
+    Note: this code assumes that each event has a constant duration.
+#### Input
+    signal: nx1 array corresponding to the tested time series
+    dur: duration of each event (in frames)
+    onset: mx1 array corresponding to the frame numbers when each event
+        happens (when m = number of events in the signal)
+    plotting: set to 1 if you wish to see the resulting restructured matrix
+#### Output
+    data_matrix: nxm array corresponding to the restructured matrix
+    plot (optional): plot showing the restructured matrix
+#### Dependencies
+    None
+#### Example
+    -> go to example folder and run code named average_rep_events_example.m
+        for more details
+
+![Alt text](examples/img/average_rep_events_matrix_example.jpg "Average rep events matrix example")
+![Alt text](examples/img/average_rep_events_example.jpg "Average rep events example")
+
 __
 ### Gaussian filter
 #### Definition
