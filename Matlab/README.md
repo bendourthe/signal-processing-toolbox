@@ -15,6 +15,7 @@ This folder contains a few Matlab codes (and some examples codes) that can be us
 | average\_rep\_events.m | Restructure a time series composed of repetitive events into a matrix and calculate the corresponding average |
 | gaussian\_filter.m | Applies a Gaussian filter to denoise a time series |
 | linear\_detrend.m | Applies the detrend function remove the linear trend from a time series |
+| lstm\_detrend.m | Applies a least-squares template-matching filter to remove a potential artifact from a data set |
 | median\_filter.m | Applies a Median filter to a denoise time series (especially to remove spikes) |
 | moving\_average.m | Applies a moving average filter to denoise a time series |
 | poly\_detrend.m | Calculated the optimal Bayes information criterion (BIC), generate the corresponding polynomial fit (order = optimal BIC), and applies a polynomial detrend to denoise a time series |

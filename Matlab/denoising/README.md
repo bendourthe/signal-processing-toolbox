@@ -73,6 +73,27 @@ Applies the detrend function remove the linear trend from a time series.
     -> go to example folder and run code named linear_detrend_example.m for more details
 
 ![Alt text](examples/img/linear_detrend_example.jpg "Linear detrend example")
+
+__
+### Least-squares template matching filter
+#### Definition
+Applies a least-squares template-matching filter to remove a potential artifact from a data set.
+    Note: works for 1D time series as well as multiple channels (e.g.
+    original data set containing 10 channels of 10 distinct time
+    series).
+#### Input
+    data: nxm array corresponding to the original data set
+    artifact: nxm array corresponding to the artifact data set
+#### Output
+    residual: nx1 array corresponding to the filtered data
+#### Dependencies
+    None
+#### Example
+    -> go to example folder and run code named lstm_filter_example.m for more details
+
+![Alt text](examples/img/lstm_filter_mean_example.jpg "Least-squares template-matching example")
+![Alt text](examples/img/lstm_filter_example.jpg "Least-squares template-matching example")
+
 __
 ### Median spike denoising filter
 #### Definition
