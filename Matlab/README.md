@@ -4,7 +4,7 @@
 
 __
 ## Denoising
-__
+
 #### Definition
 This folder contains a few Matlab codes (and some examples codes) that can be used to denoise different types of time series.
 
