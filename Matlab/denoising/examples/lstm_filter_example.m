@@ -1,5 +1,5 @@
 % Load data set
-load templateProjection.mat
+load lstm_sample.mat
 
 % Atribute data sets
 data = EEGdat;
