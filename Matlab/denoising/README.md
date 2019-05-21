@@ -1,6 +1,5 @@
 ## Denoising (Matlab)
 
-__
 ### Average repetitive events
 #### Definition
 Restructure a time series composed of repetitive events into a matrix and calculate the corresponding average.
