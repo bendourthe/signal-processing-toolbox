@@ -8,16 +8,18 @@ function filtered_signal = gaussian_filter(signal, mode, sampling_rate, fwhm, wi
 %       mode: select mode to deal with edge effect
 %           0: set edges to zero
 %           1: set edges to original signal
-%           2: set edges to NaN
+%           2: set edges to NaN [default]
 %       sampling_rate: corresponding sampling rate of the time series (i.e.
-%           how many frames per seconds, in Hz)
+%           how many frames per seconds, in Hz) [default = length(signal)]
 %       fwhm: full-width at half maximum, key variable defining Gaussian
-%           filter
+%           filter [default = 25]
 %       window: number of frames used to define the size of the window
 %           (e.g. a value of 20 would mean that every data point in the
 %           original signal will be replaced with the mean of the 20 data
 %           points before and the 20 data points after itself)
+%           [default = 20]
 %       plotting: set to 1 if you wish to see the resulting filtered signal
+%           [default = 0]
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered signal
@@ -27,6 +29,30 @@ function filtered_signal = gaussian_filter(signal, mode, sampling_rate, fwhm, wi
 
 %% FUNCTION
 
+% Deal with default values and potential missing input variables
+switch nargin
+    case 1
+        mode = 2;
+        sampling_rate = length(signal);
+        fwhm = 25;
+        window = 20;
+        plotting = 0;
+    case 2
+        sampling_rate = length(signal);
+        fwhm = 25;
+        window = 20;
+        plotting = 0;
+    case 3
+        fwhm = 25;
+        window = 20;
+        plotting = 0;
+    case 4
+        window = 20;
+        plotting = 0;
+    case 5
+        plotting = 0;
+end
+
 % Define time based on signal length and sampling rate
 time = 0:1/sampling_rate:(length(signal)-1)/sampling_rate;
 
@@ -34,9 +60,6 @@ time = 0:1/sampling_rate:(length(signal)-1)/sampling_rate;
 n = length(time);
 
 % Generate Gaussian kernel
-
-%   full-width half-maximum
-fwhm = 25; % in ms
 
 %   normalized time vector in ms
 gtime = 1000*(-window:window)/sampling_rate;

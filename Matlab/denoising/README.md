@@ -10,6 +10,7 @@ Restructure a time series composed of repetitive events into a matrix and calcul
     onset: mx1 array corresponding to the frame numbers when each event
         happens (when m = number of events in the signal)
     plotting: set to 1 if you wish to see the resulting restructured matrix
+        [default = 0]
 #### Output
     data_matrix: nxm array corresponding to the restructured matrix
     plot (optional): plot showing the restructured matrix
@@ -31,16 +32,18 @@ Applies a Gaussian filter to denoise a time series.
     mode: select mode to deal with edge effect
             0: set edges to zero
             1: set edges to original signal
-            2: set edges to NaN
+            2: set edges to NaN [default]
     sampling_rate: corresponding sampling rate of the time series
         (i.e. how many frames per seconds, in Hz)
+        [default = length(signal)]
     fwhm: full-width at half maximum, key variable defining Gaussian
-        filter
+        filter [default = 25]
     window: number of frames used to define the size of the window
         (e.g. a value of 20 would mean that every data point in the original
         signal will be replaced with the mean of the 20 data points before
-        and the 20 data points after itself)
+        and the 20 data points after itself) [default = 20]
     plotting: set to 1 if you wish to see the resulting filtered signal
+        [default = 0]
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     plot (optional): plots showing (1) the Gaussian with the corresponding
@@ -63,6 +66,7 @@ Applies the detrend function remove the linear trend from a time series.
 #### Input
     signal: nx1 array corresponding to the tested time series
     plotting: set to 1 if you wish to see the resulting filtered signal
+        [default = 0]
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     plot (optional): plot showing the original and filtered signals
@@ -106,8 +110,9 @@ Applies a Median filter to a denoise time series (especially to remove spikes).
     window: number of frames used to define the size of the window
         (e.g. a value of 20 would mean that every data point in the original
         signal will be replaced with the mean of the 20 data points before
-        and the 20 data points after itself)
+        and the 20 data points after itself) [default = 20]
     plotting: set to 1 if you wish to see the resulting filtered signal
+        [default = 0]
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     plot (optional): plot showing the original and filtered signals
@@ -127,11 +132,13 @@ Applies a moving average filter to denoise a time series.
     signal: nx1 array corresponding to the tested time series
     sampling_rate: corresponding sampling rate of the time series
         (i.e. how many frames per seconds, in Hz)
+        [default = length(signal)]
     window: number of frames used to define the size of the window
         (e.g. a value of 20 would mean that every data point in the original
         signal will be replaced with the mean of the 20 data points before
-        and the 20 data points after itself)
+        and the 20 data points after itself) [default = 20]
     plotting: set to 1 if you wish to see the resulting filtered signal
+        [default = 0]
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     plot (optional): plot showing the original and filtered signals along 
@@ -150,6 +157,7 @@ Calculated the optimal Bayes information criterion (BIC), generate the correspon
 #### Input
     signal: nx1 array corresponding to the tested time series
     plotting: set to 1 if you wish to see the resulting filtered signal
+        [default = 0]
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     plot (optional): plot showing the corresponding BIC evolution and
@@ -165,12 +173,15 @@ Calculated the optimal Bayes information criterion (BIC), generate the correspon
 __
 ### Teager-Kaiser Energy-tracking Operator (TKEO) and Z-Score
 #### Definition
- Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time series (e.g. Electromyogram (EMG)) and generate the corresponding Z-Scores (potential application: activation detection for EMG signals).
+ Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time
+ series (e.g. Electromyogram (EMG)) and generate the corresponding Z-Scores
+ (potential application: activation detection for EMG signals).
 #### Input
     signal: nx1 array corresponding to the tested time series
-    sampling_rate: corresponding sampling rate of the time series (i.e.
-        how many frames per seconds, in Hz)
+    time: nx1 array corresponding to the time of the tested time series
+        [default = 0:length(signal)]
     plotting: set to 1 if you wish to see the resulting filtered signal
+        [default = 0]
 #### Output
     filtered_signal: nx1 array corresponding to the filtered time series
     signal_zscore: nx1 array corresponding to z-score of the original time series

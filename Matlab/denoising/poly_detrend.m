@@ -8,6 +8,7 @@ function filtered_signal = poly_detrend(signal, plotting)
 %   Input
 %       signal: nx1 array corresponding to the tested time series
 %       plotting: set to 1 if you wish to see the resulting filtered signal
+%           [default = 0]
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered signal
@@ -15,6 +16,12 @@ function filtered_signal = poly_detrend(signal, plotting)
 %           the original and filtered signals
 
 %% FUNCTION
+
+% Deal with default values and potential missing input variables
+switch nargin
+    case 1
+        plotting = 0;
+end
 
 %   Signal properties
 n = length(signal);

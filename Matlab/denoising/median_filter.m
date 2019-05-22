@@ -13,13 +13,24 @@ function filtered_signal = median_filter(signal, window, plotting)
 %           (e.g. a value of 20 would mean that every data point in the
 %           original signal will be replaced with the median of the 20 data
 %           points before and the 20 data points after itself)
+%           [default = 20]
 %       plotting: set to 1 if you wish to see the resulting filtered signal
+%           [default = 0]
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered signal
 %       plot (optional): plot showing the original and filtered signals
 
 %% FUNCTION
+
+% Deal with default values and potential missing input variables
+switch nargin
+    case 1
+        window = 20;
+        plotting = 0;
+    case 2
+        plotting = 0;
+end
 
 %   Plot histogram to manually select filter threshold
 fig = figure;
@@ -44,6 +55,8 @@ for i=1:length(outliers)
     % compute median of surrounding points
     filtered_signal(outliers(i)) = median(signal(low_bound:upp_bound));
 end
+
+close all
 
 % Plotting
 if plotting == 1

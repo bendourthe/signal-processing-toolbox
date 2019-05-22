@@ -1,4 +1,4 @@
-function [filtered_signal, signal_zscore, filtered_signal_zscore] = tkeo_zscore(time, signal, sampling_rate, plotting)
+function [filtered_signal, signal_zscore, filtered_signal_zscore] = tkeo_zscore(signal, time, plotting)
 %% DESCRIPTION
 %
 %   Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a
@@ -6,9 +6,10 @@ function [filtered_signal, signal_zscore, filtered_signal_zscore] = tkeo_zscore(
 %
 %   Input
 %       signal: nx1 array corresponding to the tested time series
-%       sampling_rate: corresponding sampling rate of the time series (i.e.
-%           how many frames per seconds, in Hz)
+%       time: nx1 array corresponding to the time of the tested time series
+%           [default = 0:length(signal)]
 %       plotting: set to 1 if you wish to see the resulting filtered signal
+%           [default = 0]
 %
 %   Output
 %       filtered_signal: nx1 array corresponding to the filtered signal
@@ -21,6 +22,15 @@ function [filtered_signal, signal_zscore, filtered_signal_zscore] = tkeo_zscore(
 
 %% FUNCTION
 
+% Deal with default values and potential missing input variables
+switch nargin
+    case 1
+        time = 0:length(signal);
+        plotting = 0;
+    case 2
+        plotting = 0;
+end
+
 % Initialize filtered signal vector
 filtered_signal = signal;
 
@@ -29,7 +39,7 @@ filtered_signal(2:end-1) = signal(2:end-1).^2 - signal(1:end-2).*signal(3:end);
 
 % Concert original and filtered time series to z-score
 %   find timepoint zero
-time0 = dsearchn(time',0)
+time0 = dsearchn(time',0);
 
 %   convert original time series
 signal_zscore = (signal-mean(signal(1:time0))) / std(signal(1:time0));

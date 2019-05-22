@@ -18,4 +18,4 @@ fwhm = 25;
 window = 40;
 plotting = 1;
 %   function
-filtered_signal = gaussian_filter(signal, 2, sampling_rate, fwhm, window, plotting);
+filtered_signal = gaussian_filter(signal,plotting);
