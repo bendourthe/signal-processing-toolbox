@@ -1,7 +1,7 @@
-% Load data set
+% Load data
 load lstm_sample.mat
 
-% Atribute data sets
+% Allocate variables from data set
 data = EEGdat;
 artifact = eyedat;
 
