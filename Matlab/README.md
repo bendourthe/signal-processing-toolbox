@@ -20,3 +20,15 @@ This folder contains a few Matlab codes (and some examples codes) that can be us
 | moving\_average.m | Applies a moving average filter to denoise a time series |
 | poly\_detrend.m | Calculated the optimal Bayes information criterion (BIC), generate the corresponding polynomial fit (order = optimal BIC), and applies a polynomial detrend to denoise a time series |
 | tkeo\_zscore.py    | Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time series (e.g. Electromyogram (EMG)) and generate the corresponding Z-Scores (potential application: activation detection for EMG signals) |
+
+__
+## Spectral analysis
+
+#### Definition
+This folder contains a few Matlab codes (and some examples codes) that can be used to analyse different types of time series in the frequency domain.
+
+#### Content
+    
+| Code | Definition  |
+| ---- |-------------|
+| welch\_method.m | Applies Welch's method to a time series for spectral density estimation |
