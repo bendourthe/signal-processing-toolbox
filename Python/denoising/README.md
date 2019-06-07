@@ -166,8 +166,7 @@ Applies a different moving average filter to a time series (standard and gaussia
 #### Dependencies
     None
 #### Example
-    signal = np.random.rand(50,1)*10
-    signal_avg = moving_average(signal, mode='gaussian', window_sigma=1, plot=True)
+    -> go to example folder and run code named moving_gaussian_example.m for more details
 
 ![Alt text](examples/img/moving_gaussian_example.jpg "Moving gaussian example")
 
