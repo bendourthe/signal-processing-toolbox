@@ -169,7 +169,7 @@ Applies a different moving average filter to a time series (standard and gaussia
     signal = np.random.rand(50,1)*10
     signal_avg = moving_average(signal, mode='gaussian', window_sigma=1, plot=True)
 
-![Alt text](img/moving_gaussian_example.jpg "Moving gaussian example")
+![Alt text](examples/img/moving_gaussian_example.jpg "Moving gaussian example")
 
 __
 ### Polynomial detrending
