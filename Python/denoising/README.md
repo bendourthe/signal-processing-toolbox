@@ -95,7 +95,6 @@ Applies a least-squares template-matching filter to remove a potential artifact 
     -> go to example folder and run code named lstm_filter_example.m and use
         the file lstm_sample.mat for more details
 
-![Alt text](examples/img/lstm_filter_mean_example.jpg "Least-squares template-matching example")
 ![Alt text](examples/img/lstm_filter_example.jpg "Least-squares template-matching example")
 
 __
