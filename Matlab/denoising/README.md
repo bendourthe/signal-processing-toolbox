@@ -2,7 +2,7 @@
 
 ### Average repetitive events
 #### Definition
-Restructure a time series composed of repetitive events into a matrix and calculate the corresponding average.
+Restructures a time series composed of repetitive events into a matrix and calculate the corresponding average.
     Note: this code assumes that each event has a constant duration.
 #### Input
     signal: nx1 array corresponding to the tested time series
@@ -40,8 +40,8 @@ Applies a Gaussian filter to denoise a time series.
         filter [default = 25]
     window: number of frames used to define the size of the window
         (e.g. a value of 20 would mean that every data point in the original
-        signal will be replaced with the mean of the 20 data points before
-        and the 20 data points after itself) [default = 20]
+        signal will be replaced with the mean of the 100 data points before
+        and the 100 data points after itself) [default = 100]
     plotting: set to 1 if you wish to see the resulting filtered signal
         [default = 0]
 #### Output
@@ -61,7 +61,7 @@ Applies a Gaussian filter to denoise a time series.
 __
 ### Linear detrending
 #### Definition
-Applies the detrend function remove the linear trend from a time series.
+Applies the detrend function to remove the linear trend from a time series.
     Note: added option to plot original and filtered signals.
 #### Input
     signal: nx1 array corresponding to the tested time series
@@ -153,7 +153,7 @@ Applies a moving average filter to denoise a time series.
 __
 ### Polynomial detrending
 #### Definition
-Calculated the optimal Bayes information criterion (BIC), generate the corresponding polynomial fit (order = optimal BIC), and applies a polynomial detrend to denoise a time series.
+Calculates the optimal Bayes information criterion (BIC), generate the corresponding polynomial fit (order = optimal BIC), and applies a polynomial detrend to denoise a time series.
 #### Input
     signal: nx1 array corresponding to the tested time series
     plotting: set to 1 if you wish to see the resulting filtered signal
@@ -173,9 +173,9 @@ Calculated the optimal Bayes information criterion (BIC), generate the correspon
 __
 ### Teager-Kaiser Energy-tracking Operator (TKEO) and Z-Score
 #### Definition
- Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time
- series (e.g. Electromyogram (EMG)) and generate the corresponding Z-Scores
- (potential application: activation detection for EMG signals).
+Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time
+series (e.g. Electromyogram (EMG)) and generate the corresponding Z-Scores
+(potential application: activation detection for EMG signals).
 #### Input
     signal: nx1 array corresponding to the tested time series
     time: nx1 array corresponding to the time of the tested time series
@@ -195,4 +195,5 @@ __
     -> go to example folder and run code named tkeo_zscore_example.m and use
         the file emg_sample.mat for more details
 
-![Alt text](examples/img/tkeo_zscore_example.jpg "Teager-Kaiser Energy-tracking Operator and Z-Score example")
+![Alt text](examples/img/tkeo_example.jpg "Teager-Kaiser Energy-tracking Operator and Z-Score example")
+![Alt text](examples/img/zscore_example.jpg "Teager-Kaiser Energy-tracking Operator and Z-Score example")

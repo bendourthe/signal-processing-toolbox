@@ -36,7 +36,7 @@ xlabel('Time [ms]'), ylabel('Trials')
 title('Original data')
 
 subplot(133)
-imagesc(timevec,[],resdat')
+imagesc(timevec,[],residual')
 set(gca,'clim',clim)
 xlabel('Time [ms]'), ylabel('Trials')
 title('Residual')

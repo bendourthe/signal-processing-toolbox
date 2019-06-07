@@ -1,7 +1,7 @@
 function filtered_signal = linear_detrend(signal, plotting)
 %% DESCRIPTION
 %
-%   Applies the detrend function remove the linear trend from a time
+%   Applies the detrend function to remove the linear trend from a time
 %       series.
 %       Note: added option to plot original and filtered signals.
 %

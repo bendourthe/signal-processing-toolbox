@@ -1,7 +1,7 @@
 function data_matrix = average_rep_events(signal, dur, onset, plotting)
 %% DESCRIPTION
 %
-%   Restructure a time series composed of repetitive events into a matrix
+%   Restructures a time series composed of repetitive events into a matrix
 %   and calculate the corresponding average.
 %       Note: this code assumes that each event has a constant duration.
 %
@@ -19,7 +19,7 @@ function data_matrix = average_rep_events(signal, dur, onset, plotting)
 
 %% FUNCTION
 
-% Deal with default values and potential missing input variables
+%   Deal with default values and potential missing input variables
 switch nargin
     case 1
         error('Missing input variables: duration and onset')

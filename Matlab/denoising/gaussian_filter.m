@@ -17,7 +17,7 @@ function filtered_signal = gaussian_filter(signal, mode, sampling_rate, fwhm, wi
 %           (e.g. a value of 20 would mean that every data point in the
 %           original signal will be replaced with the mean of the 20 data
 %           points before and the 20 data points after itself)
-%           [default = 20]
+%           [default = 100]
 %       plotting: set to 1 if you wish to see the resulting filtered signal
 %           [default = 0]
 %
@@ -35,19 +35,19 @@ switch nargin
         mode = 2;
         sampling_rate = length(signal);
         fwhm = 25;
-        window = 20;
+        window = 100;
         plotting = 0;
     case 2
         sampling_rate = length(signal);
         fwhm = 25;
-        window = 20;
+        window = 100;
         plotting = 0;
     case 3
         fwhm = 25;
-        window = 20;
+        window = 100;
         plotting = 0;
     case 4
-        window = 20;
+        window = 100;
         plotting = 0;
     case 5
         plotting = 0;
@@ -87,7 +87,8 @@ end
 
 % Apply Gaussian moving average filter with selected window
 for i=window+1:n-window-1
-    % each point is the weighted average of k surrounding points
+    % each point is the weighted average of the surrounding points
+    % (i.e. window length before and after)
     filtered_signal(i) = sum(signal(i-window:i+window).*gauswin);
 end
 
@@ -101,14 +102,13 @@ if plotting == 1
     hold on
     plot(gtime([prePeakHalf pstPeakHalf]), gauswin([prePeakHalf pstPeakHalf]), 'm', 'linew', 1.5)
     legend({'Gaussian';'full-width half maximum'})
-    title('Gaussian filter representation')
-
+    title('Gaussian kernel representation')
+    % plot original and filtered signal
     fig2 = figure;
     fig2.Color = 'w';
     clf, hold on
     plot(time, signal)
     plot(time, filtered_signal, 'linew', 1.5)
-
     xlabel('Time [sec]'), ylabel('Amplitude')
     legend({'Original signal';'Gaussian-filtered'})
     title('Gaussian smoothing filter')

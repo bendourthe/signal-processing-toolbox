@@ -49,20 +49,25 @@ filtered_signal_zscore = (filtered_signal-mean(filtered_signal(1:time0))) / std(
 
 % Plotting
 if plotting == 1
-    fig = figure;
-    fig.Color = 'w';    % set background color to white
+    fig1 = figure;
+    fig1.Color = 'w';    % set background color to white
     clf
     % plot original and filtered time series (normalized to max-1)
-    subplot(211), hold on
+    hold on
     plot(time, signal./max(signal), 'linew', 1.5)
     plot(time, filtered_signal./max(filtered_signal), 'linew', 1.5)
     xlabel('Time [ms]'), ylabel('Amplitude or energy')
-    legend({'signal'; 'filtered signal (TKEO)'})
+    legend({'Original signal'; 'Filtered signal (TKEO)'})
+    title('Signal denoising via Teager-Kaiser Energy-tracking Operator (TKEO)')
 
     % plot zscores
-    subplot(212), hold on
+    fig2 = figure;
+    fig2.Color = 'w';    % set background color to white
+    clf
+    hold on
     plot(time, signal_zscore, 'linew', 1.5)
     plot(time, filtered_signal_zscore, 'linew', 1.5)
     xlabel('Time [ms]'), ylabel('z-score')
-    legend({'signal'; 'filtered signal (TKEO)'})
+    legend({'Original signal'; 'Filtered signal (TKEO)'})
+    title('Signal Z-Score via Teager-Kaiser Energy-tracking Operator (TKEO)')
 end

@@ -8,14 +8,15 @@ p = 15; % poles for random interpolation
 noiseamp = 5; 
 
 % Define amplitude modulator and noise level
-ampl   = interp1(rand(p,1)*30,linspace(1,p,n));
-noise  = noiseamp * randn(size(time));
+ampl = interp1(rand(p,1)*30,linspace(1,p,n));
+noise = noiseamp * randn(size(time));
 signal = ampl + noise;
 
-% Apply a moving average filter
+% Apply a Gaussian filter
 %   settings
+mode = 2;
 fwhm = 25;
-window = 40;
+window = 100;
 plotting = 1;
 %   function
-filtered_signal = gaussian_filter(signal,plotting);
+filtered_signal = gaussian_filter(signal, mode, sampling_rate, fwhm, window, plotting);

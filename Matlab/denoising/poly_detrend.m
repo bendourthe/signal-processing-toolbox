@@ -1,7 +1,7 @@
 function filtered_signal = poly_detrend(signal, plotting)
 %% DESCRIPTION
 %
-%   Calculated the optimal Bayes information criterion (BIC), generate the
+%   Calculates the optimal Bayes information criterion (BIC), generate the
 %   corresponding polynomial fit (order = optimal BIC), and applies a
 %   polynomial detrend to denoise a time series.
 %
@@ -23,17 +23,17 @@ switch nargin
         plotting = 0;
 end
 
-%   Signal properties
+% Signal properties
 n = length(signal);
 t = (1:n)';
 
-%   Range of orders
+% Range of orders
 orders = (5:40)';
 
-%   Calculate corresponding sum of squared errors
+% Calculate corresponding sum of squared errors
 sum_se = zeros(length(orders),1); 
 
-%   Loop through orders
+% Loop through orders
 for i=1:length(orders)    
     % compute polynomial fitting time series
     yHat = polyval(polyfit(t,signal,orders(i)),t);    
@@ -41,19 +41,19 @@ for i=1:length(orders)
     sum_se(i) = sum((yHat-signal).^2)/n;
 end
 
-%   Calculate BIC
+% Calculate BIC
 bic = n*log(sum_se) + orders*log(n);
 
-%   Calculate optimal BIC (i.e. lowest)
+% Calculate optimal BIC (i.e. lowest)
 [bestP,idx] = min(bic);
 
-%   Calculate polynomial fit
+% Calculate polynomial fit
 poly_coefs = polyfit(t,signal,orders(idx));
 
-%   Calculate estimated data based on coefficients
+% Calculate estimated data based on coefficients
 yHat = polyval(poly_coefs,t);
 
-%   Calculate detrended filtered signal (i.e. residual)
+% Calculate detrended filtered signal (i.e. residual)
 filtered_signal = signal - yHat;
 
 % Plotting

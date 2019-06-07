@@ -56,21 +56,21 @@ if mode == 0
 elseif mode == 1
     filtered_signal = signal;
 elseif mode == 2
-    filtered_signal = NaN(length(signal));
+    filtered_signal = NaN(size(signal));
 end
 
 % Apply moving average filter with selected window
 for i=window+1:n-window-1
-    % each point is the average of k surrounding points
+    % each point is the average of surrounding points (within window)
     filtered_signal(i) = mean(signal(i-window:i+window));
 end
 
 % Plotting
 if plotting == 1
     % compute window size in ms
-    window_size = 1000*(window*2+1) / sampling_rate;
+    window_size = 1000*(window*2+1)/sampling_rate;
 
-    % plot the noisy and filtered signals
+    % plot the original and filtered signals
     fig = figure;
     fig.Color = 'w';    % set background color to white
     clf, hold on
@@ -84,6 +84,6 @@ if plotting == 1
     plot(time([tidx tidx]), ylim,'k--')
 
     xlabel('Time [sec]'), ylabel('Amplitude')
-    title([ 'Moving average filter with a window size of ' num2str(round(window_size)) '-ms filter' ])
-    legend({'Signal'; 'Filtered'})
+    title([ 'Moving average filter with a window size of ' num2str(round(window_size)) '-ms' ])
+    legend({'Original'; 'Moving aeverage'})
 end

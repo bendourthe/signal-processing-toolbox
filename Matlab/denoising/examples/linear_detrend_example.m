@@ -2,7 +2,7 @@
 n = 2000;
 signal = cumsum(randn(1,n)) + linspace(-30,30,n);
 
-% Apply median filter
+% Apply linear detrending filter
 %   settings
 plotting = 1;
 %   function

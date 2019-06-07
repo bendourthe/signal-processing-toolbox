@@ -8,13 +8,14 @@ p = 15; % poles for random interpolation
 noiseamp = 5; 
 
 % Define amplitude modulator and noise level
-ampl   = interp1(rand(p,1)*30,linspace(1,p,n));
-noise  = noiseamp * randn(size(time));
+ampl = interp1(rand(p,1)*30,linspace(1,p,n));
+noise = noiseamp * randn(size(time));
 signal = ampl + noise;
 
 % Apply a moving average filter
 %   settings
+mode = 2;
 window = 20;
 plotting = 1;
 %   function
-filtered_signal = moving_average(signal, 2, sampling_rate, window, plotting);
+filtered_signal = moving_average(signal, mode, sampling_rate, window, plotting);
