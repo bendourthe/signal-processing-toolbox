@@ -1,5 +1,5 @@
 % Load data
-load EEGrestingState.mat
+load eeg_sample.mat
 
 % Allocate variables from data set
 signal = eegdata;

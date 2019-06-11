@@ -1,4 +1,4 @@
-# Event detection
+# Event detection (Python)
 
 ### Event detection algorithm (drop vertical jump)
 #### Definition:

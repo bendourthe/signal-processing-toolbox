@@ -15,7 +15,7 @@ def gaussian_filter(signal, mode=None, sampling_rate=None, fwhm=None, window=Non
             1: set edges to original signal
             2: set edges to NaN [default]
         sampling_rate: corresponding sampling rate of the time series (i.e. how many frames per seconds, in Hz)
-            [default = length(signal)]
+            [default = len(signal)]
         fwhm: full-width at half maximum, key variable defining Gaussian filter
             [default = 25]
         window: number of frames used to define the size of the window (e.g. a value of 20 would mean that every data point in the original signal will be replaced with the mean of the 20 data points before and the 20 data points after itself)

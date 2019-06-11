@@ -14,17 +14,17 @@ end
 %   add noise
 signal = signal + randn(size(signal));
 
-% Apply static Fast Fourrier Transform to signal
-fourrier_signal = fft(signal);
+% Apply static Fast Fourier Transform to signal
+fourier_signal = fft(signal);
 
 % Calculate corresponding amplitude spectrum
-amplitude_spectrum = 2*abs(fourrier_signal)/num_fr;
+amplitude_spectrum = 2*abs(fourier_signal)/num_fr;
 
 % Define frequency spectrum as a vector (in Hz)
 freq_spectr = linspace(0,srate/2,floor(num_fr/2)+1);
 
 % Reconstruct signal using inverse Fast Fourrier Transform
-recon_signal = ifft(fourrier_signal);
+recon_signal = ifft(fourier_signal);
 
 % Plotting
 fig = figure;

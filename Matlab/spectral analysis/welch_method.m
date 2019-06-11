@@ -67,7 +67,7 @@ for i=1:length(onsets)
     welch_power = welch_power + power(1:length(freq_spectr));
 end
 
-% divide by number of windows to obtain average
+% Divide by number of windows to obtain average
 welch_power = welch_power / length(onsets);
 
 % Plotting
@@ -103,7 +103,7 @@ if plotting == 1
     plot(sfft_freq_spectr, sfft_spectr(1:length(sfft_freq_spectr)), 'linew', 1.5)
     plot(freq_spectr, welch_power/10, 'linew', 1.5)
     set(gca,'xlim',[0 40])
-    xlabel('Frequency (Hz)')
+    xlabel('Frequency [Hz]')
     legend({'Static FFT';'Welch''s method'})
     title('Static FFT vs. Welch''s method')
 end

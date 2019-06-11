@@ -1,4 +1,4 @@
-# Interpolation and resampling
+# Interpolation and resampling (Python)
 
 ### Cubic spline fill
 #### Definition
