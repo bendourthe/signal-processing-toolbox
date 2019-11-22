@@ -22,7 +22,6 @@ def reshape_data(data, reshape_length):
     original_length = len(data)
     #   Upsample (increase signal length by adding additional data points along a fitting spline)
     if original_length < reshape_length:
-        print('upsampling')
         reshaped_data = np.zeros(reshape_length)
         reshape_idx = range(0, reshape_length)
         for i in range(0,np.shape(data)[1]):
@@ -38,7 +37,6 @@ def reshape_data(data, reshape_length):
         reshaped_data = np.transpose(reshaped_data)
     #   Downsample (decrease signal length by selected equally spaced data points along the original signal)
     else:
-        print('downsampling')
         #   Calculated space between observations in the reshaped signal
         spacing = int(original_length/reshape_length)
         #   Generate new index array with index distribution based on the desired reshape length
