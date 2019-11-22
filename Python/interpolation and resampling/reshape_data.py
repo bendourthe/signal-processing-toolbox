@@ -26,7 +26,10 @@ def reshape_data(data, reshape_length):
         reshape_idx = range(0, reshape_length)
         for i in range(0,np.shape(data)[1]):
             #   Find the equation of the cubic spline that best fits time series
-            cs = interpolate.CubicSpline(np.arange(0, reshape_length, reshape_length/original_length), data[:,i])
+            if len(np.arange(0, reshape_length, reshape_length/original_length)) > len(data[:,i]):
+                cs = interpolate.CubicSpline(np.arange(0, reshape_length-reshape_length/original_length, reshape_length/original_length), data[:,i])
+            else:
+                cs = interpolate.CubicSpline(np.arange(0, reshape_length, reshape_length/original_length), data[:,i])
             #   Apply cubic spline equation to obtained resampled time series
             y_resampled = cs(range(0,reshape_length))
             #   Add current resampled vector to resampled array
