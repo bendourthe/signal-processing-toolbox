@@ -4,20 +4,20 @@ import numpy as numpy
 
 # FUNCTION
 
-def dvj_event_detection(time, right_signal, left_signal, mode=None, plot=None, height_threshold_factor=None, manual_window=None, auto_window=None):
+def dvj_event_detection(time, right_signal, left_signal, mode=None, height_threshold_factor=None, manual_window=None, auto_window=None, plot=None):
     '''
-    Detects box jump, primary landing, takeoff, maximal jump and secondary landing during a drop vertical jump (DVJ) trial.
+    Detect box jump, primary landing, takeoff, maximal jump and secondary landing during a drop vertical jump (DVJ) trial.
     Input:
         time: nx1 array: define time series (in secs)
         right_signal: nx1 array: z-coordinates of the right ankle
         left_signal: nx1 array: z-coordinates of the left ankle
         mode: select between 'manual', 'auto' and 'hybrid'
-        plot: plot the corresponding outcome for verification (if True)
         height_threshold_factor: select a height threshold factor for the detection of peaks (in %)
                 e.g. a value of X means that only peaks that have a y-value of more than X% of the max height of the signal will be found (default: 80% of the max)
         manual_window: select how many frames will be used to detect box jump and landings
                 (around the actual selected point, default 5)
         auto_window: select how many frames will be used to detect box jump, landings and take-off (default 50)
+        plot: plot the corresponding outcome for verification (if True)
     Output:
         R_events: 5x1 array including the frame indices of the different events detected for the right foot
         L_events: 5x1 array including the frame indices of the different events detected for the left foot
@@ -26,10 +26,10 @@ def dvj_event_detection(time, right_signal, left_signal, mode=None, plot=None, h
     #   Default parameters
     if height_threshold_factor == None:
         height_threshold_factor = 80
-    if auto_window == None:
-        auto_window = 50
     if manual_window == None:
         manual_window = 5
+    if auto_window == None:
+        auto_window = 50
 
     #   Input signal (i.e. ankle vertical position (z-axis))
     RAJz = right_signal
