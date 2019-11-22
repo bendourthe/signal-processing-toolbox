@@ -8,17 +8,19 @@ from fastdtw import fastdtw
 
 # FUNCTION
 
-def dtw_excursion(x_series1, y_series1, x_series2, y_series2, plot=None, mode=None):
+def dtw_excursion(x_series1, y_series1, x_series2, y_series2, plotting=None, output=None, mode=None):
     '''
-    Applies an approximate Dynamic Time Warping (DTW) algorithm [1] to compare two time series and calculate the corresponding mean and standard deviations of the amplitude and temporal excursions.
-        Note: the DTW used does not work if time series has infinite or NaN values, therefore, the code will look for NaNs and only keep the non-NaN values.
+    Apply an approximate Dynamic Time Warping (DTW) algorithm [1] to compare two time series and calculate the corresponding mean and standard deviations of the amplitude and temporal excursions
+        Note: the DTW used does not work if time series has infinite or NaN values, therefore, the code will look for NaNs and only keep the non-NaN values
             [1] provides optimal or near-optimal alignments with an O(N) time and memory complexity, written based on Stan Salvador, and Philip Chan. “FastDTW: Toward accurate dynamic time warping in linear time and space.” Intelligent Data Analysis 11.5 (2007): 561-580.
     Input:
         x_series1: nx1 array corresponding to the time vector defining time series #1
         y_series1: nx1 array corresponding to the amplitude vector defining time series #1
         x_series2: nx1 array corresponding to the time vector defining time series #2
         y_series2: nx1 array corresponding to the amplitude vector defining time series #2
-        plot: if set to True will plot the two time series with the corresponding connections resulting from the shortest path calculated by the fast DTW
+        plotting: if set to True will plot the two time series with the corresponding connections resulting from the shortest path calculated by the fast DTW [default = False]
+        output: select between 'absolute' and 'relative' (i.e. excursion expressed as a percentage of the value of the first time series) [default = 'absolute']
+        mode: select between 'absolute' and 'None' -> specify whether the means and standard deviations should be calculated using absolute values only (i.e. only positive, not to mistaken with the 'absolute' setting for the output input parameter) [default == None]
     Output:
         m_temp_exc: mean temporal excursion
         std_temp_exc: standard deviation of the temporal excursion
@@ -27,6 +29,13 @@ def dtw_excursion(x_series1, y_series1, x_series2, y_series2, plot=None, mode=No
     Dependencies:
         nan_find
     '''
+
+    # Deal with default values and potential missing input variables
+    if plotting == None:
+        plotting = False
+    if output == None:
+        output = 'absolute'
+
     # Look for potential NaNs (-> dynamic time wrapping doesn't work if time series has infs or NaNs)
     #   generate a NaNs logical array where the indices of each NaN observation is True
     nan_logic1, find_true1 = nan_find(y_series1)
@@ -34,24 +43,41 @@ def dtw_excursion(x_series1, y_series1, x_series2, y_series2, plot=None, mode=No
     #   find indices of non-missing observations
     obs1 = find_true1(~nan_logic1)
     obs2 = find_true2(~nan_logic2)
+
     # Restructure the data based on non-missing observations
     series1 = np.transpose(np.vstack([x_series1[obs1], y_series1[obs1]]))
     series2 = np.transpose(np.vstack([x_series2[obs2], y_series2[obs2]]))
+
     # Compute the fast DTW
     distance, path = fastdtw(series1, series2, dist=euclidean)
     path = np.array(path)
+
     # Compute time excursion
-    #   calculate the x-projection of the vector connecting the shortest dtw path between points in both time series
-    temp_exc = x_series1[path[0,0]] - x_series2[path[0,1]]
-    for i in range(1, len(path)):
-        x = x_series1[path[i,0]] - x_series2[path[i,1]]
-        temp_exc = np.vstack([temp_exc, x])
-    # Compute amplitude excursion
-    #   calculate the y-projection of the vector connecting the shortest dtw path between points in both time series
-    amp_exc = y_series1[path[0,0]] - y_series2[path[0,1]]
-    for i in range(1, len(path)):
-        y = y_series1[path[i,0]] - y_series2[path[i,1]]
-        amp_exc = np.vstack([amp_exc, y])
+    if output == 'absolute':
+        #   calculate the x-projection of the vector connecting the shortest dtw path between points in both time series
+        temp_exc = x_series1[path[0,0]] - x_series2[path[0,1]]
+        for i in range(1, len(path)):
+            x = x_series1[path[i,0]] - x_series2[path[i,1]]
+            temp_exc = np.vstack([temp_exc, x])
+        # Compute amplitude excursion
+        #   calculate the y-projection of the vector connecting the shortest dtw path between points in both time series
+        amp_exc = y_series1[path[0,0]] - y_series2[path[0,1]]
+        for i in range(1, len(path)):
+            y = y_series1[path[i,0]] - y_series2[path[i,1]]
+            amp_exc = np.vstack([amp_exc, y])
+    elif output == 'relative':
+        #   calculate the x-projection of the vector connecting the shortest dtw path between points in both time series (as a percentage of the x-projection of the first time series)
+        temp_exc = (x_series1[path[0,0]] - x_series2[path[0,1]]) * 100/x_series1[path[0,0]]
+        for i in range(1, len(path)):
+            x = (x_series1[path[i,0]] - x_series2[path[i,1]]) * 100/x_series1[path[i,0]]
+            temp_exc = np.vstack([temp_exc, x])
+        # Compute amplitude excursion
+        #   calculate the y-projection of the vector connecting the shortest dtw path between points in both time series (as a percentage of the y-projection of the first time series)
+        amp_exc = (y_series1[path[0,0]] - y_series2[path[0,1]]) * 100/y_series1[path[0,0]]
+        for i in range(1, len(path)):
+            y = (y_series1[path[i,0]] - y_series2[path[i,1]]) * 100/y_series1[path[i,0]]
+            amp_exc = np.vstack([amp_exc, y])
+
     # Compute means and standard deviations
     if mode == 'absolute':
         m_temp_exc = np.nanmean(np.absolute(temp_exc))
@@ -65,10 +91,10 @@ def dtw_excursion(x_series1, y_series1, x_series2, y_series2, plot=None, mode=No
         std_amp_exc = np.nanstd(amp_exc)
 
     # Plotting
-    if plot == True:
+    if plotting == True:
         fig, ax = plt.subplots()
-        ax.plot(x_series1, y_series1, label='Time series 1')
-        ax.plot(x_series2, y_series2, label='Time series 2')
+        ax.plot(x_series1, y_series1, label=method_1)
+        ax.plot(x_series2, y_series2, label=method_2)
         for i in range(0, len(path)):
             x = np.array([x_series1[path[i,0]], x_series2[path[i,1]]])
             y = np.array([y_series1[path[i,0]], y_series2[path[i,1]]])
