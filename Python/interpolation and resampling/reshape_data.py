@@ -24,7 +24,13 @@ def reshape_data(data, reshape_length):
     if original_length < reshape_length:
         reshaped_data = np.zeros(reshape_length)
         reshape_idx = range(0, reshape_length)
-        for i in range(0,np.shape(data)[1]):
+        #   If data has only one column
+        if len(np.shape(data)) == 1:
+            num_col = 0
+        #   If data has multiple columns
+        else:
+            num_col = np.shape(data)[1]
+        for i in range(0, num_col):
             #   Find the equation of the cubic spline that best fits time series
             if len(np.arange(0, reshape_length, reshape_length/original_length)) > len(data[:,i]):
                 cs = interpolate.CubicSpline(np.arange(0, reshape_length-reshape_length/original_length, reshape_length/original_length), data[:,i])
@@ -35,7 +41,10 @@ def reshape_data(data, reshape_length):
             #   Add current resampled vector to resampled array
             reshaped_data = np.vstack([reshaped_data, y_resampled])
         #   Remove first row of zeros
-        reshaped_data = reshaped_data[1:,:]
+        if len(np.shape(data)) == 1:
+            reshaped_data = reshaped_data[1:]
+        else:
+            reshaped_data = reshaped_data[1:,:]
         #   Transpose array to match with usual format (row = observation, column = variable)
         reshaped_data = np.transpose(reshaped_data)
     #   Downsample (decrease signal length by selected equally spaced data points along the original signal)
