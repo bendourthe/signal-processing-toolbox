@@ -54,6 +54,9 @@ def reshape_data(data, reshape_length):
             reshaped_data = reshaped_data[1:,:]
         #   Transpose array to match with usual format (row = observation, column = variable)
         reshaped_data = np.transpose(reshaped_data)
+        #   If only one column, ensure to have a consistent output with shape (reshape length,)
+        if len(np.shape(reshaped_data)) > 1:
+            reshaped_data = reshaped_data[:,0]
     #   Downsample (decrease signal length by selected equally spaced data points along the original signal)
     else:
         #   Calculated space between observations in the reshaped signal
