@@ -25,12 +25,14 @@ def reshape_data(data, reshape_length):
     reshape_idx = range(0, reshape_length)
     #   If data has only one column
     if len(np.shape(data)) == 1:
-        #   Upsampling
+        #   Resampling
+        #       Define new indices vector
+        reshaped_idx = np.arange(0, reshape_length, reshape_length/original_length)
         #       Find the equation of the cubic spline that best fits time series
         if len(np.arange(0, reshape_length, reshape_length/original_length)) > len(data):
-            cs = interpolate.CubicSpline(np.arange(0, reshape_length-reshape_length/original_length, reshape_length/original_length), data)
+            cs = interpolate.CubicSpline(reshaped_idx[0:len(reshaped_idx)-1], data)
         else:
-            cs = interpolate.CubicSpline(np.arange(0, reshape_length, reshape_length/original_length), data)
+            cs = interpolate.CubicSpline(reshaped_idx, data)
         #       Apply cubic spline equation to obtained resampled time series
         y_resampled = cs(range(0,reshape_length))
         #   Add current resampled vector to resampled array
