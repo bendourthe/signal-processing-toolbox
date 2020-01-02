@@ -7,7 +7,7 @@ from numpy.fft import fft, ifft, fft2, ifft2, fftshift
 
 def crosscorr_fft(x, y):
     '''
-    Calculate the time shift between 2 signals using a Fast Fourrier Transform (FFT).
+    Calculate the time shift between 2 signals using a Fast Fourier Transform (FFT).
     Input:
         x: nx1 array corresponding to the amplitude vector defining time series #1
         y: nx1 array corresponding to the amplitude vector defining time series #2

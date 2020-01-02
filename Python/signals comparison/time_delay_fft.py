@@ -7,7 +7,7 @@ from numpy.fft import fft, ifft, fft2, ifft2, fftshift
 
 def time_shift_fft(x, y):
     '''
-    Calculate the maximal time shift between 2 signals using a Fast Fourrier Transform (FFT).
+    Calculate the maximal time shift between 2 signals using a Fast Fourier Transform (FFT).
     Input:
         x: nx1 array corresponding to the amplitude vector defining time series #1
         y: nx1 array corresponding to the amplitude vector defining time series #2
