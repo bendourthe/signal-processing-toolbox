@@ -22,6 +22,19 @@ This folder contains a few Matlab codes (and some examples codes) that can be us
 | tkeo\_zscore.py    | Applies a Teager-Kaiser Energy-tracking Operator (TKEO) to denoise a time series (e.g. Electromyogram (EMG)) and generate the corresponding Z-Scores (potential application: activation detection for EMG signals) |
 
 __
+## Filtering
+
+#### Definition
+This folder contains a few Matlab codes (and some examples codes) that can be used to filter different types of time series.
+
+#### Content
+    
+| Code | Definition  |
+| ---- |-------------|
+| fir1\_filter.m | Applies a Finite Impulse Response (FIR) filter to a time series |
+| firls\_filter.m | Applies a Finite Impulse Response (FIR) least-square filter to a time series |
+
+__
 ## Spectral analysis
 
 #### Definition
