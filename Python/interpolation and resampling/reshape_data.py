@@ -40,12 +40,8 @@ def reshape_data(data, reshape_length):
     #   If data has multiple columns
     else:
         for i in range(0, np.shape(data)[1]):
-            #   Upsampling
-            #       Find the equation of the cubic spline that best fits time series
-            if len(np.arange(0, reshape_length, reshape_length/original_length)) > len(data[:,i]):
-                cs = interpolate.CubicSpline(np.arange(0, reshape_length-reshape_length/original_length, reshape_length/original_length), data[:,i])
-            else:
-                cs = interpolate.CubicSpline(np.arange(0, reshape_length, reshape_length/original_length), data[:,i])
+            #   Calculate coefficients for cubic spline equation that fits the data
+            cs = interpolate.CubicSpline(np.arange(0, reshape_length, reshape_length/original_length)[0:len(data[:,i])], data[:,i])
             #       Apply cubic spline equation to obtained resampled time series
             y_resampled = cs(range(0,reshape_length))
             #   Add current resampled vector to resampled array
