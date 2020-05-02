@@ -1,3 +1,8 @@
+___
+
+<a href='http://www.dourthe.tech'> <img src='Dourthe_Technologies_Headers.png' /></a>
+___
+
 # Signal processing toolbox (Matlab)
 
 ## This toolbox includes a few custom Matlab codes enabling essential signal processing operations

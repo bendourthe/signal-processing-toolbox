@@ -1,3 +1,8 @@
+___
+
+<a href='http://www.dourthe.tech'> <img src='Dourthe_Technologies_Headers.png' /></a>
+___
+
 # Signal processing toolbox (Python)
 
 ## This toolbox includes a few custom Python codes enabling essential signal processing operations
