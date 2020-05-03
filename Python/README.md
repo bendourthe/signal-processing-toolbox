@@ -6,7 +6,7 @@ ___
 
 # Signal processing toolbox (Python)
 
-## This toolbox includes a few custom Python codes enabling essential signal processing operations
+## This repository contains custom Python codes enabling essential signal processing operations
 
 __
 ## Denoising

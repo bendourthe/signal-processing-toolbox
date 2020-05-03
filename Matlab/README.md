@@ -6,7 +6,7 @@ ___
 
 # Signal processing toolbox (Matlab)
 
-## This toolbox includes a few custom Matlab codes enabling essential signal processing operations
+## This repository contains custom Matlab codes enabling essential signal processing operations
 
 __
 ## Denoising

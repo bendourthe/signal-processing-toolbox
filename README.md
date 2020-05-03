@@ -6,6 +6,6 @@ ___
 
 # Signal processing toolbox
 
-## This toolbox contains a few custom Matlab and Python codes enabling essential signal processing operations.
+## This repository contains custom Matlab and Python codes enabling essential signal processing operations.
 
 ### Click on the corresponding language folder for more details about its content.
